@@ -4,6 +4,23 @@ let week;
 week = ['Monday', 'Tuesday', 'Wednesday',
         'Thursday', 'Friday', 'Saturday', 'Sunday'];
 
+
+// Исправленный вариант
+let day = "Tuesday";
+for (let i = 0; i < 6; i++) {
+    if (day == week[i]) {
+        document.write(week[i].italics() + "<br>");
+        continue;
+    }
+    if (i == 5 || i == 6) {
+        
+        document.write(week[5].bold() + "<br>" + week[6].bold());
+        continue;
+    }
+    document.write(week[i] + "<br>"); 
+}
+
+
 //Вывести на экран все дни недели Вар 1;
 /*function printArray(array) {
     document.write(week.join(' '));
@@ -33,18 +50,10 @@ printArray2();*/
 }
 printArray();*/
 
-// Текущий день - курсивом;
-/*let day = "Tuesday";
-for (let i = 0; i < 7; i++) {
-    if (day == week[i]) {
-        document.write(week[i].italics() + " ");
-        continue;
-    }
-    document.write(week[i] + " ");
-}*/
+
 
 //Вывести в консоль только те, что начинаются с цифры 3 или 7 (Должны присутствовать в массиве)
-let arr = [];
+/*let arr = [];
 arr[0] = "123";
 arr[1] = "721";
 arr[2] = "222";
@@ -57,4 +66,4 @@ arr.forEach((e) => {
    if (e[0] == '3' || e[0] == '7') {
      console.log(e);
    }
- });
+ });*/

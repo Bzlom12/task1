@@ -25,12 +25,40 @@ question4 = prompt("Во сколько обойдется?", "");
 appData.expenses[question3] = question4;
 console.log(appData.expenses);*/
 
+//Способ 1 (новый)
+let i = 0;
+/*while (i < 2) {
+    question = prompt("Введите обязательную статью расходов в этом месяце", "");
+    question2 = prompt("Во сколько обойдется?", "");
+    if ( (typeof(question)) === 'string' && question != null && question2 != null
+        && question != '' && question2 != '' && question.length < 50 ) {
+        console.log("done");
+        appData.expenses[question] = question2;
+    i++; 
+        }
+} */       
+
+//Способ 2 (новый)
+do {question = prompt("Введите обязательную статью расходов в этом месяце", "");
+    question2 = prompt("Во сколько обойдется?", "");
+    if ( (typeof(question)) === 'string' && question != null && question2 != null
+        && question != '' && question2 != '' && question.length < 50 ) {
+        console.log("done");
+        appData.expenses[question] = question2;
+        i++; 
+    }    
+}
+while (i < 2);
+
+
+
+
 //Способ 1
 /*for (let i = 0; i < 2; i++) {
     question = prompt("Введите обязательную статью расходов в этом месяце", "");
     question2 = prompt("Во сколько обойдется?", "");
     
-    if ( (typeof(question)) === 'string' && (typeof(question)) != null && (typeof(question2)) != null
+    if ( (typeof(question)) === 'string' && question != null && question2 != null
         && question != '' && question2 != '' && question.length < 50 ) {
         console.log("done");
         appData.expenses[question] = question2;
@@ -44,23 +72,12 @@ console.log(appData.expenses);*/
     question = prompt("Введите обязательную статью расходов в этом месяце", "");
     question2 = prompt("Во сколько обойдется?", "");
 
-    ( (typeof(question)) === 'string' && (typeof(question)) != null && (typeof(question2)) != null
+    ( (typeof(question)) === 'string' && question != null && question2 != null
         && question != '' && question2 != '' && question.length < 50) ? 
         appData.expenses[question] = question2 : i--;
 }*/
 
-//Способ 3
-for (let i = 0; i < 2; i++) {
-    question = prompt("Введите обязательную статью расходов в этом месяце", "");
-    question2 = prompt("Во сколько обойдется?", "");
-    switch (question, question2) {
-        case (typeof(question)) === 'string' && (typeof(question)) != null && (typeof(question2)) != null
-            && question != '' && question2 != '' && question.length < 50:
-            appData.expenses[question] = question2;
-            console.log("done");
-            break;
-    }
-}
+
 
 
 
