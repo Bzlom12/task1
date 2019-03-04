@@ -62,12 +62,10 @@ detectLevel();
 function chooseOptExpenses() {
     for (let i = 0; i < 3; i++) {
         question3 = prompt("Статья необязательных расходов?", "");
-        while(!(isNaN(question3)) || question3 == "" || question3 == null) {
-            question3 = prompt("Статья необязательных расходов?", "");
-        }
-        if ( question3.length < 50 ) {
-            console.log("done");
+        if ((typeof(question3)) === 'string' && question3 != null
+        && question3 != '' && question3.length < 50 ) {                  
             appData.optionalExpenses[i+1] = question3;
+            console.log("done")
         } else {
         i--;
         }
@@ -84,40 +82,3 @@ function checkSavings() {
     }
 }
 checkSavings();
-
-
-
-//Способ 1.1
-/*for (let i = 0; i < 2; i++) {
-    question = prompt("Введите обязательную статью расходов в этом месяце", "");
-    question2 = prompt("Во сколько обойдется?", "");
-
-    ( (typeof(question)) === 'string' && question != null && question2 != null
-        && question != '' && question2 != '' && question.length < 50) ? 
-        appData.expenses[question] = question2 : i--;
-}*/
-
-//Способ 2 (новый)
-// let i = 0;
-/*while (i < 2) {
-    question = prompt("Введите обязательную статью расходов в этом месяце", "");
-    question2 = prompt("Во сколько обойдется?", "");
-    if ( (typeof(question)) === 'string' && question != null && question2 != null
-        && question != '' && question2 != '' && question.length < 50 ) {
-        console.log("done");
-        appData.expenses[question] = question2;
-    i++; 
-        }
-} */       
-
-/*Способ 3 (новый)
-do {question = prompt("Введите обязательную статью расходов в этом месяце", "");
-    question2 = prompt("Во сколько обойдется?", "");
-    if ( (typeof(question)) === 'string' && question != null && question2 != null
-        && question != '' && question2 != '' && question.length < 50 ) {
-        console.log("done");
-        appData.expenses[question] = question2;
-        i++; 
-    }    
-}
-while (i < 2);*/
