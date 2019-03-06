@@ -36,17 +36,16 @@ console.log(result);
 // 5)
 function done(a) {
     console.log(a);
-    if (isNaN(a) === true && a !== null) {
+    if (typeof a === "string" ) {
         console.log(typeof(a));
-        console.log("str");
+        a = a.trim();
+        if (a.length > 49) {
+            a = a.slice(0, 49)+ "...";
+            console.log(a);
+        }
     } else {
         console.log(typeof(a));
         alert("Это не строка!");
     }
-    a = a.trim();
-    if (a.length > 49) {
-        a = a.slice(0, 49)+ "...";
-        console.log(a);
-    }
 }
-done("   hrthrtwhtwhthwhtrthwtrwhrhwrthwrthtrhtwrhwthwtrhwrtwhwrthwthwrthwtrhwtrtwtrth");
+done(        "kjbgguygyugyfftydrtdrtdrtdrtdytdytfuyfuygfyugfgfuygyugguyguyggggg7ugiu7gigig7g7gu");
