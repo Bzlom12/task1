@@ -103,8 +103,9 @@ let btn = document.getElementById("start"),
     monthSave = document.getElementsByClassName("monthsavings-value"),
     yearSave = document.getElementsByClassName("yearsavings-value"),
     expItem = document.getElementsByClassName("expenses-item"),
-    expItemBtn = document.getElementsByTagName("button"),
-    optExpBtn = document.getElementsByTagName("button"),
+    expItemBtn = document.getElementsByTagName("button")[0],
+    optExpBtn = document.getElementsByTagName("button")[1],
+    countBudjetBtn = document.getElementsByTagName("button")[2],
     optExpItem = document.querySelectorAll(".optionalexpenses-item"),
     years = document.querySelector(".year"),
     months = document.querySelector(".month"),
@@ -124,8 +125,9 @@ let btn = document.getElementById("start"),
 // console.log(monthSave);
 // console.log(yearSave);
 // console.log(expItem);
-// console.log(expItemBtn[0]);
-// console.log(optExpBtn[2]);
+console.log(expItemBtn);
+console.log(optExpBtn);
+console.log(countBudjetBtn);
 // console.log(optExpItem);
 // console.log(years);
 // console.log(months);
