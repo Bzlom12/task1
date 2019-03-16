@@ -1,27 +1,25 @@
 'use strict';
 
-// let year = new Date().getFullYear(),
-//     hour = new Date().getHours(),
-//     min = new Date().getMinutes(),
-//     sec = new Date().getSeconds(),
-//     day = new Date().getDate(),
-//     month = new Date().getMonth();
+let year = new Date().getFullYear(),
+    hour = new Date().getHours(),
+    min = new Date().getMinutes(),
+    sec = new Date().getSeconds(),
+    day = new Date().getDate(),
+    month = new Date().getMonth();
 
 // 1) Выведите на страницу текущую дату и время в формате.
-// alert(hour + ":"+ min + ":" + sec + " " + day + "." + month + "." + year);
+// document.write(hour + ":"+ min + ":" + sec + " " + day + "." + month + "." + year);
 
 // 2) Функция, которая будет добавлять 0 перед днями и месяцами, которые состоят из одной цифры.
-// let getDate = function getDayMonth(date) {     
-//     let newDate = 0;
-//     if (date < 10) {
-//         return newDate = "0"+ date;
-//     }
-// }
-
-// let a = getDate(day),
-//     b = getDate(month+1);
-
-// alert(hour + ":"+ min + ":" + sec + " " + a + "." + b + "." + year);
+let get = function getDate(h, m, s, d, mon) {
+    (h < 10)? h = "0" + h : h = hour;
+    (m < 10 )? m = "0" + m : m = min;
+    (s < 10 )? s = "0" + s : s = sec;
+    (d < 10 )? d = "0" + d : d = day;
+    (mon < 10 )? mon = "0" + mon : mon = month;
+    document.write(h + ":"+ m + ":" + s + " " + d + "." + mon + "." + year);
+}
+get(hour, min, sec, day, month);
 
 // 3) Функция, которая выводит на страницу текущий день недели на русском языке.
 // function week() {
@@ -32,42 +30,42 @@
 // }
 // week();
 
-// 4) Функция, которая выводит на страницу разницу между двумя датами в количестве дней.
-let div1 = document.createElement("input"),
-    div2 = document.createElement("input"),
-    div3 = document.createElement("div"),
-    btn = document.createElement("button");
-document.body.appendChild(div1);
-div1.classList.add("block-input");
+// // 4) Функция, которая выводит на страницу разницу между двумя датами в количестве дней.
+// let div1 = document.createElement("input"),
+//     div2 = document.createElement("input"),
+//     div3 = document.createElement("div"),
+//     btn = document.createElement("button");
+// document.body.appendChild(div1);
+// div1.classList.add("block-input");
 
-document.body.appendChild(div2);
-div2.classList.add("block-input");
+// document.body.appendChild(div2);
+// div2.classList.add("block-input");
 
-document.body.appendChild(div3);
-div3.classList.add("block");
-div3.style.height = "20px";
-div3.style.width = "346px";
-div3.style.backgroundColor = "black";
-div3.style.color = "white";
-div3.style.textAlign = "center";
-div3.textContent = "Введите дату в формате YYYY-MM-DD"
+// document.body.appendChild(div3);
+// div3.classList.add("block");
+// div3.style.height = "20px";
+// div3.style.width = "346px";
+// div3.style.backgroundColor = "black";
+// div3.style.color = "white";
+// div3.style.textAlign = "center";
+// div3.textContent = "Введите дату в формате YYYY-MM-DD"
 
-document.body.appendChild(btn);
-btn.classList.add("block-button");
-btn.style.borderRadius = "50px";
-btn.style.height = "20px";
-btn.style.width = "80px";
-btn.textContent = "Расчет";
+// document.body.appendChild(btn);
+// btn.classList.add("block-button");
+// btn.style.borderRadius = "50px";
+// btn.style.height = "20px";
+// btn.style.width = "80px";
+// btn.textContent = "Расчет";
 
-let day1 = document.getElementsByClassName("block-input")[0],
-    day2 = document.getElementsByClassName("block-input")[1];
+// let day1 = document.getElementsByClassName("block-input")[0],
+//     day2 = document.getElementsByClassName("block-input")[1];
 
-btn.addEventListener('click', function() {
-    let a, b, c;
-    a = new Date (Date.parse(day1.value)).getTime();
-    b = new Date (Date.parse(day2.value)).getTime();
-    console.log(a);
-    console.log(b);
-    c = (a - b)/1000/60/60/24;
-    div3.textContent = c;
-});
+// btn.addEventListener('click', function() {
+//     let a, b, c;
+//     a = new Date (Date.parse(day1.value)).getTime();
+//     b = new Date (Date.parse(day2.value)).getTime();
+//     console.log(a);
+//     console.log(b);
+//     c = (a - b)/1000/60/60/24;
+//     div3.textContent = c;
+// });
