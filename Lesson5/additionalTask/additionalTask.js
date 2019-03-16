@@ -10,14 +10,12 @@ let year = new Date().getFullYear(),
 // 1) Выведите на страницу текущую дату и время в формате.
 // document.write(hour + ":"+ min + ":" + sec + " " + day + "." + month + "." + year);
 
-// 2) Функция, которая будет добавлять 0 перед днями и месяцами, которые состоят из одной цифры.
+let zer = (a) => {
+    return (a < 10)? "0" + a : a;
+};  
+
 let get = function getDate(h, m, s, d, mon) {
-    (h < 10)? h = "0" + h : h = hour;
-    (m < 10 )? m = "0" + m : m = min;
-    (s < 10 )? s = "0" + s : s = sec;
-    (d < 10 )? d = "0" + d : d = day;
-    (mon < 10 )? mon = "0" + mon : mon = month;
-    document.write(h + ":"+ m + ":" + s + " " + d + "." + mon + "." + year);
+    document.write(zer(h) + ":" + zer(m) + ":" + zer(s) + " " + zer(d) + "." + zer(mon) + "." + year);
 }
 get(hour, min, sec, day, month);
 
