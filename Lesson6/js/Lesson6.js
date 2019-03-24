@@ -43,7 +43,6 @@ startBtn.addEventListener('click', function() {
 // Кнопка "Утвердить" Обязательные расходы
 expItemBtn.addEventListener('click', function() {
     sum = 0;
-    
     for (let i = 0; i < expItem.length; i++) {
         if (expItem[i].value != "" ) {
             question = expItem[i].value;
@@ -55,17 +54,66 @@ expItemBtn.addEventListener('click', function() {
     expns.textContent = sum;
 });
 
+function validNum() {
+    let reg = /[^\d]/;
+    let value2 = expItem[1].value;
+    for (let i = 1; i < expItem.length; i= i + 2) {
+        expItem[i].addEventListener('input', function(e) {
+           let value = e.target.value;
+           expItem[i]
+        //    console.log(value2);
+            if (!value.match(reg)) {
+                expItem[i].value = value;
+                return false;
+            } else {
+                expItem[i].value = value2;
+                return false;
+            }
+        });
+    }
+}
+validNum();
+
 // Кнопка "Утвердить" необязательные расходы
 optExpBtn.addEventListener('click', function() {
-    for (let i = 0; i < optExpItem.length; i++) {
-        if (optExpItem[i].value != "" &&  isNaN(optExpItem[i].value)) {
-            question3 = optExpItem[i].value;
-            appData.optionalExpenses[i+1] = question3;
-            optionalValue.textContent  += appData.optionalExpenses[i+1] + " ";
-            console.log("done");
-        }    
-    }
+    if (optionalValue.textContent == "") {
+        for (let i = 0; i < optExpItem.length; i++) {
+            if (optExpItem[i].value != "") {
+                question3 = optExpItem[i].value;
+                appData.optionalExpenses[i+1] = question3;
+                optionalValue.textContent  += appData.optionalExpenses[i+1] + " ";
+            }
+        }
+    } else {
+        optionalValue.textContent = "";
+        for (let i = 0; i < optExpItem.length; i++) {
+        optExpItem[i].value = "";
+        }
+    }   
 });
+ 
+// check optExp
+function valid() {
+    let reg = /[^А-ЯЁ][а-яё]*$/ig,
+        value2 = optExpItem[2].value;
+    for (let i = 0; i < optExpItem.length; i++) {
+        optExpItem[i].addEventListener('input', function(e) {
+            let value = e.target.value;
+
+            if (!value.match(reg)) {
+                optExpItem[i].value = value;
+            
+                return false;
+            } else {
+                optExpItem[i].value = value2;
+            
+                return false;
+            }
+        });
+    }
+}
+valid();
+ 
 
 // Кнопка "Расчет дневного бюджета"
 countBudjetBtn.addEventListener('click', function() {
